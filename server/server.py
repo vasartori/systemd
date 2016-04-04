@@ -1,5 +1,6 @@
-from http.server import BaseHTTPRequestHandler, HTTPServer
+import os
 import sys
+from http.server import BaseHTTPRequestHandler, HTTPServer
 
 
 class ServerHttp(BaseHTTPRequestHandler):
@@ -7,7 +8,11 @@ class ServerHttp(BaseHTTPRequestHandler):
         self.send_response(200)
         self.send_header('Content-type', 'text/html')
         self.end_headers()
-        mensagem = "Oi, respondendo na porta: {}".format(PORT)
+        try:
+            env_var = "Valor da variavel de sistema TESTE: {}".format(os.environ['TESTE'])
+        except KeyError:
+            env_var = ""
+        mensagem = "Oi, respondendo na porta: {}. {}".format(PORT, env_var)
         self.wfile.write(str.encode(mensagem))
         return
 

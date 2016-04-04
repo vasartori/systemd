@@ -6,7 +6,7 @@ After=network.target
 EnvironmentFile=/opt/server/env_file
 User=victor
 ExecStart=/usr/bin/python3 /opt/server/server.py $PORTA
-StandardOutput=/var/log/teste
+StandardOutput=null
 StandardError=null
 
 

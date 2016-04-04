@@ -1,0 +1,10 @@
+[Unit]
+Description=Test server daemon %I
+After=network.target
+Before=nginx.service
+
+[Service]
+ExecStart=/usr/bin/python3 /opt/server/server.py %i
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,10 @@
+[Unit]
+Description=Test server daemon
+After=network.target
+
+[Service]
+User=victor
+ExecStart=/usr/bin/python3 /opt/server/server.py
+
+[Install]
+WantedBy=multi-user.target
